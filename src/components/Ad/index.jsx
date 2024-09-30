@@ -1,0 +1,56 @@
+import SideContent from "../SideContent";
+
+export default function Ad() {
+  return (
+    <div className="flex justify-center flex-col items-center  text-white">
+      <p className="font-semibold text-lg opacity-50">Our Features</p>
+      <p className="text-[80px] max-w-[900px] leading-none text-center pt-12">
+        Fluid AI was born out of a desire to simplify and streamline modern life
+      </p>
+      <div className="pt-32 flex flex-col gap-16">
+        <div className="flex items-end gap-24 ">
+          <SideContent
+            title={"Fluid AI: Simplify, Organize, and Acheive More"}
+            desc={
+              "n a world where daily tasks, communication, and goals often become overwhelming, Fluid AI offers an innovative solution. Combining advanced AI technology with a user-friendly interface, it brings together to-do lists, chats, saved items, and bucket lists into one seamless platform"
+            }
+            step={"1/4"}
+          />
+          <img width={380} height={780} src="/iPhone1.png" alt="iphone1" />
+        </div>
+        <div className="flex items-end gap-24 ">
+          <img width={380} height={780} src="/iPhone2.png" alt="iphone1" />
+
+          <SideContent
+            title={"Fluid AI: Simplify, Organize, and Acheive More"}
+            desc={
+              "n a world where daily tasks, communication, and goals often become overwhelming, Fluid AI offers an innovative solution. Combining advanced AI technology with a user-friendly interface, it brings together to-do lists, chats, saved items, and bucket lists into one seamless platform"
+            }
+            step={"2/4"}
+          />
+        </div>
+        <div className="flex items-end gap-24 ">
+          <SideContent
+            title={"Fluid AI: Simplify, Organize, and Acheive More"}
+            desc={
+              "n a world where daily tasks, communication, and goals often become overwhelming, Fluid AI offers an innovative solution. Combining advanced AI technology with a user-friendly interface, it brings together to-do lists, chats, saved items, and bucket lists into one seamless platform"
+            }
+            step={"3/4"}
+          />
+          <img width={380} height={780} src="/iPhone3.png" alt="iphone1" />
+        </div>
+        <div className="flex items-end gap-24 ">
+          <img width={380} height={780} src="/iPhone4.png" alt="iphone1" />
+
+          <SideContent
+            title={"Fluid AI: Simplify, Organize, and Acheive More"}
+            desc={
+              "n a world where daily tasks, communication, and goals often become overwhelming, Fluid AI offers an innovative solution. Combining advanced AI technology with a user-friendly interface, it brings together to-do lists, chats, saved items, and bucket lists into one seamless platform"
+            }
+            step={"4/4"}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}

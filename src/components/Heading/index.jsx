@@ -12,11 +12,11 @@ import "aos/dist/aos.css"; // Ensure AOS CSS is imported
 export default function Heading() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isFixed, setIsFixed] = useState(true);
-  const [isSecondLogoVisible, setIsSecondLogoVisible] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     Aos.init({ duration: 1000, offset: 200 });
-    Aos.refresh(); 
+    Aos.refresh();
   }, []);
 
   useEffect(() => {
@@ -26,15 +26,31 @@ export default function Heading() {
 
       setIsFixed(scrollPosition < viewportHeight);
       setIsScrolled(scrollPosition > 50);
+    };
 
-      // Implement the visibility logic for the second logo here if necessary
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
     };
 
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const getLogoSize = () => {
+    if (windowWidth < 738) {
+      return isScrolled
+        ? { width: "170px", height: "36px" }
+        : { width: "240px", height: "50px" };
+    }
+    return isScrolled
+      ? { width: "170px", height: "36px" }
+      : { width: "705px", height: "150px" };
+  };
 
   return (
     <div>
@@ -49,27 +65,23 @@ export default function Heading() {
             src="/public/logo.png"
             alt="logo"
             className="transition-all"
-            style={{
-              width: isScrolled ? "170px" : "705px",
-              height: isScrolled ? "36px" : "150px",
-            }}
-            initial={{ width: "705px", height: "150px" }}
-            animate={{
-              width: isScrolled ? "170px" : "705px",
-              height: isScrolled ? "36px" : "150px",
-              opacity: isSecondLogoVisible ? 0 : 1,
-            }}
+            style={getLogoSize()}
+            initial={getLogoSize()}
+            animate={getLogoSize()}
             transition={{ duration: 0.4 }}
           />
         </div>
         <ScrollDown />
       </div>
-      <div className="h-[1500px] mx-auto w-full flex items-center justify-around bg-[url('/public/bg.png')] bg-black">
+      <div className="h-[1500px]   mx-auto w-full flex items-center justify-between  md:justify-around bg-[url('/public/bg.png')] bg-black">
         <div className="flex w-4/12 flex-col gap-16 justify-start">
-          <div data-aos="fade-right" className="flex gap-8 items-end">
+          <div
+            data-aos="fade-right"
+            className="flex flex-col  md:flex-row gap-8 items-end"
+          >
             <Todo task="Renew Car Insurance" />
             <img
-              className="relative bottom-8"
+              className="relative bottom-8 mt-4 md:mt-0 "
               src="/public/Card.png"
               alt="card"
             />
@@ -77,7 +89,7 @@ export default function Heading() {
           <div
             data-aos="fade-right"
             data-aos-delay={300}
-            className="flex items-end gap-4 self-center"
+            className="flex flex-col relative right-16 md:right-0 md:flex-row mt-4 md:mt-0 items-end gap-4 md:self-center"
           >
             <UpcomingEvent
               event={"Kite Beach"}
@@ -86,11 +98,11 @@ export default function Heading() {
             />
             <Tag tag={"Cafe nearby"} />
           </div>
-          <div data-aos="fade-right" className="self-end">
+          <div data-aos="fade-right" className="md:self-end">
             <img src="/ticket.png" alt="ticket" />
           </div>
         </div>
-        <div className="w-2/12 relative bottom-[65px] flex flex-col text-white text-center justify-center items-center logo-placer">
+        <div className="md:w-2/12   flex flex-col text-white text-center justify-center items-center logo-placer">
           <motion.img
             width={170}
             height={36}
@@ -100,24 +112,34 @@ export default function Heading() {
             animate={{ opacity: !isFixed ? 1 : 0 }}
             transition={{ duration: 0.4 }}
           />
-          <p className="text-[80px] pt-16">Unlock Seamless Efficiency</p>
+          <p className=" text-[56px] md:text-[80px] pt-16">
+            Unlock Seamless Efficiency
+          </p>
+          <button className="bg-white text-cetner py-4 px-8 mt-8 drop-shadow-lg rounded-full whitespace-nowrap text-black">
+            Join Waitlist
+          </button>
         </div>
-        <div className="w-4/12 flex flex-col items-end gap-8">
-          <div data-aos="fade-left" className="self-center">
+        <div className="w-4/12 flex flex-col items-end gap-8 ">
+          <div
+            data-aos="fade-left"
+            className="md:self-center relative left-24 md:left-0"
+          >
             <Todo task="Renew Car Insurance" />
           </div>
-          <div data-aos="fade-left">
+          <div data-aos="fade-left" className="relative left-36 md:left-0">
             <UpcomingEvent
               event={"Kite Beach"}
               startTime={"10:00"}
               endTime={"14:00"}
             />
           </div>
-          <Tag data-aos="fade-left" tag={"Book a flight"} />
-          <Tag data-aos="fade-left" tag={"Trip ideas"} />
+          <div className="relative left-24 md:left-0">
+            <Tag data-aos="fade-left" tag={"Book a flight"} />
+            <Tag data-aos="fade-left" tag={"Trip ideas"} />
+          </div>
           <img
             data-aos="fade-left"
-            className="self-center"
+            className="md:self-center relative top-24 md:top-0"
             src="/Reservation.png"
             alt="reservation"
           />

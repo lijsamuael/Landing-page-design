@@ -10,11 +10,14 @@ export default function Ad() {
   return (
     <div className="flex justify-center flex-col items-center  text-white">
       <p className="font-semibold text-lg opacity-50">Our Features</p>
-      <p className="text-[80px] max-w-[900px] leading-none text-center pt-12">
+      <p className="text-[32px] md:text-[80px] px-4 max-w-[900px] leading-none text-center pt-12">
         Fluid AI was born out of a desire to simplify and streamline modern life
       </p>
       <div className="pt-32 flex flex-col gap-16">
-        <div data-aos="fade-right" className="flex items-end gap-24 ">
+        <div
+          data-aos="fade-right"
+          className="flex flex-col-reverse md:flex-row items-end gap-24 "
+        >
           <SideContent
             title={"Fluid AI: Simplify, Organize, and Acheive More"}
             desc={
@@ -24,7 +27,10 @@ export default function Ad() {
           />
           <img width={380} height={780} src="/iPhone1.png" alt="iphone1" />
         </div>
-        <div data-aos="fade-left" className="flex items-end gap-24 ">
+        <div
+          data-aos="fade-left"
+          className="flex flex-col md:flex-row items-end gap-24 "
+        >
           <img width={380} height={780} src="/iPhone2.png" alt="iphone1" />
 
           <SideContent
@@ -35,7 +41,10 @@ export default function Ad() {
             step={"2/4"}
           />
         </div>
-        <div data-aos="fade-right" className="flex items-end gap-24 ">
+        <div
+          data-aos="fade-right"
+          className="flex flex-col-reverse md:flex-row items-end gap-24 "
+        >
           <SideContent
             title={"Fluid AI: Simplify, Organize, and Acheive More"}
             desc={
@@ -45,7 +54,10 @@ export default function Ad() {
           />
           <img width={380} height={780} src="/iPhone3.png" alt="iphone1" />
         </div>
-        <div data-aos="fade-left" className="flex items-end gap-24 ">
+        <div
+          data-aos="fade-left"
+          className="flex flex-col md:flex-row items-end gap-24 "
+        >
           <img width={380} height={780} src="/iPhone4.png" alt="iphone1" />
 
           <SideContent

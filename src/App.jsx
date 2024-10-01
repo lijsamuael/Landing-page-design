@@ -13,7 +13,7 @@ import "aos/dist/aos.css";
 
 function App() {
   return (
-    <div className="bg-black ">
+    <div className="bg-black  overflow-x-hidden">
       <div className="max-w-[2000px] mx-auto">
         <Heading />
         <Ad />

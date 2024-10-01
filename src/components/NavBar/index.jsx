@@ -1,24 +1,41 @@
+import { useState } from "react";
+
 export default function NavBar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    console.log("is open?", !isOpen);
+  };
+
   return (
     <nav className="">
-      <div className=" text-white flex flex-wrap items-center justify-between mx-auto p-4">
-        <ul className="flex gap-16 ">
-          <li href="https://flowbite.com/" className="">
-            Our Features
+      <div className="text-white flex flex-wrap items-center justify-between mx-auto p-4">
+        <div
+          className="flex md:hidden items-center cursor-pointer"
+          onClick={toggleMenu}
+        >
+          <img src="/Frame.png" alt="Open/Close" />
+        </div>
+
+        <ul className="md:flex gap-16 hidden">
+          <li className="">
+            <a href="https://flowbite.com/">Our Features</a>
           </li>
-          <li href="https://flowbite.com/" className="">
-            Areas
+          <li className="">
+            <a href="https://flowbite.com/">Areas</a>
           </li>
         </ul>
+
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul className="font-medium flex  gap-16 justify-center items-center">
+          <ul className="font-medium flex gap-16 justify-center items-center">
             <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-white  rounded  "
+                className="block py-2 px-3 text-white rounded"
                 aria-current="page"
               >
-                FQQs
+                FAQs
               </a>
             </li>
             <li>
@@ -28,6 +45,31 @@ export default function NavBar() {
             </li>
           </ul>
         </div>
+      </div>
+
+      <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
+        <ul className="flex flex-col p-4">
+          <li>
+            <a href="#" className="block py-2 px-3 text-white rounded">
+              FAQs
+            </a>
+          </li>
+          <li>
+            <a href="#" className="block py-2 px-3 text-white rounded">
+              The Waitlist
+            </a>
+          </li>
+          <li>
+            <a href="#" className="block py-2 px-3 text-white rounded">
+              Our Features
+            </a>
+          </li>
+          <li>
+            <a href="#" className="block py-2 px-3 text-white rounded">
+              Areas
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   );

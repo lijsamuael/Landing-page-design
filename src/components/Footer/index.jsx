@@ -13,9 +13,9 @@ export default function Footer() {
             />
             <p className="pt-8 text-white/50">2024 Fluid AI</p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+          <div className="grid grid-cols-2 pt-8 md:pt-0 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <ul className="text-gray-500 flex flex-col gap-4 dark:text-gray-400 font-medium">
+              <ul className="text-gray-500  flex flex-col gap-4 dark:text-gray-400 font-medium">
                 <li className="">Our featurs</li>
                 <li>Areas</li>
                 <li>FAQs</li>

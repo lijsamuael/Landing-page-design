@@ -4,13 +4,10 @@ import NavBar from "../NavBar";
 import Heading from "../Heading";
 import ScrollDown from "../ScrollDown";
 import Feature from "../Feature";
+import { div } from "framer-motion/client";
 
 export default function LandingPage() {
   return (
-    <div className="bg-black min-h-screen  flex flex-col justify-between">
-      <NavBar />
-      <Heading />
-      <ScrollDown />
-    </div>
+<div></div>
   );
 }

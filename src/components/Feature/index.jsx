@@ -26,8 +26,8 @@ export default function Feature() {
           <img src="/ticket.png" alt="ticket" />
         </div>
       </div>
-      <div className="w-2/12 flex justify-center">
-        <img width={170} height={36} src="/public/logo.png" alt="" />
+      <div className="w-2/12 flex justify-center logo-placer">
+        {/* <img width={170} height={36} src="/public/logo.png" alt="" /> */}
       </div>
       <div className="w-4/12 flex flex-col items-end gap-8">
         <div className="self-center">

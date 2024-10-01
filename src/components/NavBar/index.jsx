@@ -19,11 +19,11 @@ export default function NavBar() {
         </div>
 
         <ul className="md:flex gap-16 hidden">
-          <li className="">
-            <a href="https://flowbite.com/">Our Features</a>
+          <li className="hover:underline">
+            <a href="#features">Our Features</a>
           </li>
           <li className="">
-            <a href="https://flowbite.com/">Areas</a>
+            <a href="#areas">Areas</a>
           </li>
         </ul>
 
@@ -31,7 +31,7 @@ export default function NavBar() {
           <ul className="font-medium flex gap-16 justify-center items-center">
             <li>
               <a
-                href="#"
+                href="#faqs"
                 className="block py-2 px-3 text-white rounded"
                 aria-current="page"
               >
@@ -39,7 +39,7 @@ export default function NavBar() {
               </a>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-white rounded">
+              <a href="#waitlists" className="block py-2 px-3 text-white rounded">
                 The Waitlist
               </a>
             </li>
@@ -50,22 +50,22 @@ export default function NavBar() {
       <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
         <ul className="flex flex-col p-4">
           <li>
-            <a href="#" className="block py-2 px-3 text-white rounded">
+            <a href="#faqs" className="block py-2 px-3 text-white rounded">
               FAQs
             </a>
           </li>
           <li>
-            <a href="#" className="block py-2 px-3 text-white rounded">
+            <a href="#waitlists" className="block py-2 px-3 text-white rounded">
               The Waitlist
             </a>
           </li>
           <li>
-            <a href="#" className="block py-2 px-3 text-white rounded">
+            <a href="#features" className="block py-2 px-3 text-white rounded">
               Our Features
             </a>
           </li>
           <li>
-            <a href="#" className="block py-2 px-3 text-white rounded">
+            <a href="#areas" className="block py-2 px-3 text-white rounded">
               Areas
             </a>
           </li>

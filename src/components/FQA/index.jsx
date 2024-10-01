@@ -2,7 +2,7 @@ import Question from "../Question";
 
 export default function FQA() {
   return (
-    <div className="pt-32 pb-8">
+    <div id="faqs" className="pt-32 pb-8">
       <div className="px-4 md:px-16 flex flex-col md:flex-row gap-64  text-white justify-between">
         <div className="md:w-5/12 ">
           <p className=" text-[32px] md:text-[56px]  ">

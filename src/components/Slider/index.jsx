@@ -10,7 +10,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 
 export default function Slider() {
   return (
-    <div className="text-white ">
+    <div id="areas" className="text-white ">
       <p className="text-[32px] md:text-[56px] pl-4 max-w-[900px] leading-none  pt-12">
         Fluid AI was born out of a desire to simplify and streamline modern life
       </p>

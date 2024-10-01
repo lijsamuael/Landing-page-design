@@ -8,7 +8,7 @@ export default function Ad() {
     Aos.refresh();
   }, []);
   return (
-    <div className="flex justify-center flex-col items-center  text-white">
+    <div id="features" className="flex justify-center flex-col items-center  text-white">
       <p className="font-semibold text-lg opacity-50">Our Features</p>
       <p className="text-[32px] md:text-[80px] px-4 max-w-[900px] leading-none text-center pt-12">
         Fluid AI was born out of a desire to simplify and streamline modern life

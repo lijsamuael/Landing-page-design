@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "Light";
+  src: local("AirbnbCerealLight"),
+    url("public/fonts/SFPRODISPLAYREGULAR.OTF") format("truetype");
+}

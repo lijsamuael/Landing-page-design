@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import NavBar from "../NavBar";
 import ScrollDown from "../ScrollDown";
@@ -10,6 +10,9 @@ import Aos from "aos";
 import "aos/dist/aos.css"; // Ensure AOS CSS is imported
 
 export default function Heading() {
+  const firstElementRef = useRef(null);
+  const secondElementRef = useRef(null);
+  const [secondElementPosition, setSecondElementPosition] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isFixed, setIsFixed] = useState(true);
   const [isRelative, setIsRelative] = useState(false);
@@ -49,6 +52,29 @@ export default function Heading() {
     };
   }, []);
 
+  useEffect(() => {
+    // Function to update the position of the second element
+    const updatePosition = () => {
+      if (firstElementRef.current) {
+        const firstElementBottom =
+          firstElementRef.current.offsetTop +
+          firstElementRef.current.offsetHeight;
+
+        // Set the top position of the second element
+        setSecondElementPosition(firstElementBottom + 20);
+      }
+    };
+
+    // Update position on mount and whenever the window is resized
+    updatePosition();
+    window.addEventListener("resize", updatePosition);
+
+    // Cleanup the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("resize", updatePosition);
+    };
+  }, []);
+
   const getLogoSize = () => {
     if (windowWidth < 738) {
       return isScrolled
@@ -62,11 +88,12 @@ export default function Heading() {
 
   return (
     <div>
-      <div className="bg-black min-h-[38vh] flex flex-col justify-between">
+      <div className="conatiner relative bg-black min-h-[38vh] flex flex-col justify-between">
         <div>
           <NavBar />
         </div>
         <div
+          ref={firstElementRef}
           className={`
            ${isFixed && !isRelative ? "fixed" : "relative"} 
            ${isRelative && !isFixed && "relative top-[40vh]"}
@@ -137,12 +164,18 @@ export default function Heading() {
           </div>
         </div>
         <div
+          ref={secondElementRef}
+          style={{
+            position: "absolute",
+            top: `${secondElementPosition * 0.9}px`,
+            padding: "40px",
+          }}
           data-aos="fade-up"
           data-aos-offset="350"
           data-aos-duration="800"
           data-aos-easing="ease-in-out"
           data-aos-once="false"
-          className=" w-2/6 md:w-2/12 relative bottom-64 xxxs:bottom-80 xxs:bottom-64 xs:bottom-72 md:bottom-48 mmd:bottom-24 llg:bottom-[300px]    sm:left-4 md:left-0   flex flex-col text-white text-center justify-center items-center logo-placer"
+          className=" w-2/6 md:w-2/12 left-[35%] md:left-[43%]  flex flex-col text-white text-center justify-center items-center "
         >
           <div className=" text-[56px] relative   text-center md:text-[70px] md:whitespace-nowrap pt-4 md:pt-16">
             <p>Unlock Seamless</p>

@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        xs: "480px", // Custom small screen breakpoint
-        sm: "640px", // Default small screen, can be overridden
-        md: "768px", // Default medium screen
+        xs: "480px", 
+        sm: "640px", 
+        md: "768px", 
         mmd: "900px",
-        lg: "1024px", // Default large screen
-        xl: "1280px", // Default extra-large screen
-        "2xl": "1536px", // Default 2xl screen
-        "3xl": "1920px", // Custom extra-large screen breakpoint
+        lg: "1024px",
+        xl: "1280px", 
+        "2xl": "1536px", 
+        "3xl": "1920px",
       },
     },
   },

@@ -20,3 +20,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+// className=" w-2/6 md:w-2/12 relative bottom-64 xxxs:bottom-80 xxs:bottom-64 xs:bottom-72 md:bottom-48 mmd:bottom-24 llg:bottom-[600px]    sm:left-4 md:left-0   flex flex-col text-white text-center justify-center items-center logo-placer"

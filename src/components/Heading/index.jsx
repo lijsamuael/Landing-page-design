@@ -97,7 +97,7 @@ export default function Heading() {
           data-aos-offset={window.innerHeight / 1.2}
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
-          className="flex relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80 sm:right-12 md:right-72 mmd:right-64 lg:right-48 xl:right-16 2xl:right-0  w-2/6 md:w-4/12 flex-col gap-16 justify-start"
+          className="flex relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80 sm:right-12 md:right-72 mmd:right-64 llg:right-80 lg:right-48 xl:right-16 2xl:right-0  w-2/6 md:w-4/12 flex-col gap-16 justify-start"
         >
           <div className="relative bottom-8 right-12 md:right-0 md:bottom-0 flex flex-col-reverse  md:flex-row gap-8 items-end">
             <div className="hidden md:block relative md:top-8">
@@ -106,7 +106,7 @@ export default function Heading() {
             <img
               width={500}
               className=" mt-4 md:mt-0 relative left-8 bottom-12 md:bottom-0 md:left-0  max-w-full h-auto"
-              src="/public/Card.png"
+              src="/images/Card.svg"
               alt="card"
             />
           </div>
@@ -131,7 +131,7 @@ export default function Heading() {
           <div className="relative top-24 md:top-0 md:self-end md:left-24 lg:left-0">
             <img
               className="min-w-full relative  top-16 sm:top-24 md:left-12  m:h-auto"
-              src="/ticket.png"
+              src="/images/new tickets card.svg"
               alt="ticket"
             />
           </div>
@@ -142,7 +142,7 @@ export default function Heading() {
           data-aos-duration="800"
           data-aos-easing="ease-in-out"
           data-aos-once="false"
-          className=" w-2/6 md:w-2/12 relative bottom-64 xs:bottom-72 md:bottom-48 mmd:bottom-24 lg:bottom-32 xl:bottom-64   sm:left-4 md:left-0   flex flex-col text-white text-center justify-center items-center logo-placer"
+          className=" w-2/6 md:w-2/12 relative bottom-64 xxxs:bottom-80 xxs:bottom-64 xs:bottom-72 md:bottom-48 mmd:bottom-24 llg:bottom-[450px] lg:bottom-32 xl:bottom-80   sm:left-4 md:left-0   flex flex-col text-white text-center justify-center items-center logo-placer"
         >
           <div className=" text-[56px] relative   text-center md:text-[70px] md:whitespace-nowrap pt-4 md:pt-16">
             <p>Unlock Seamless</p>
@@ -158,9 +158,9 @@ export default function Heading() {
           data-aos-offset={window.innerHeight / 1.2}
           data-aos-duration="500"
           data-aos-easing="ease-in-out"
-          className=" w-2/6 md:w-4/12 relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80  flex flex-col items-end gap-8  sm:left-0 md:left-24 mmd:left-0 right-0 md:right-24   xl:right-64"
+          className=" w-2/6 md:w-4/12 relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80  flex flex-col items-end gap-8  sm:left-0 md:left-24 mmd:left-0 right-0 md:right-24 llg:left-24    xl:right-64"
         >
-          <div className="hidden md:block md:self-center relative left-56  sm:bottom-24 md:bottom-0 md:left-0">
+          <div className="hidden md:block md:self-center relative left-56  sm:bottom-24 md:bottom-0 md:left-0 ">
             <Todo task="Renew Car Insurance" />
           </div>
           <div className="relative top-2 sm:top-0 bottom-64 md:bottom-0 left-32 md:left-0">
@@ -173,13 +173,13 @@ export default function Heading() {
           <div className=" hidden md:block relative left-12 top-12 md:top-0 md:left-0">
             <Tag tag={"Book a flight"} />
           </div>
-          <div className=" hidden md:block relative top-8 md:top-0 ">
+          <div className=" hidden md:block relative top-8 lg:right-12 md:top-0 ">
             <Tag tag={"Trip ideas"} />
           </div>
 
           <img
             className="md:self-center max-w-full relative left-8 sm:left-24 xl:left-0 md:right-24 top-64 sm:top-36"
-            src="/Reservation.png"
+            src="/images/Reservation.svg"
             alt="reservation"
           />
         </div>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 import Ad from "./components/Ad";
 import FQA from "./components/FQA";

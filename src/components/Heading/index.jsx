@@ -94,7 +94,7 @@ export default function Heading() {
         <div
           data-aos="fade-right"
           data-aos-delay={300}
-          data-aos-offset="700"
+          data-aos-offset={window.innerHeight / 1.2}
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
           className="flex relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80 sm:right-12 md:right-72 mmd:right-64 lg:right-48 xl:right-16 2xl:right-0  w-2/6 md:w-4/12 flex-col gap-16 justify-start"
@@ -142,7 +142,7 @@ export default function Heading() {
           data-aos-duration="800"
           data-aos-easing="ease-in-out"
           data-aos-once="false"
-          className=" w-2/6 md:w-2/12 relative bottom-72 md:bottom-64 sm:left-4 md:left-0   flex flex-col text-white text-center justify-center items-center logo-placer"
+          className=" w-2/6 md:w-2/12 relative bottom-64 xs:bottom-72 md:bottom-48 mmd:bottom-24 lg:bottom-32 xl:bottom-64   sm:left-4 md:left-0   flex flex-col text-white text-center justify-center items-center logo-placer"
         >
           <div className=" text-[56px] relative   text-center md:text-[70px] md:whitespace-nowrap pt-4 md:pt-16">
             <p>Unlock Seamless</p>
@@ -155,7 +155,7 @@ export default function Heading() {
         <div
           data-aos="fade-left"
           data-aos-delay={200}
-          data-aos-offset="700"
+          data-aos-offset={window.innerHeight / 1.2}
           data-aos-duration="500"
           data-aos-easing="ease-in-out"
           className=" w-2/6 md:w-4/12 relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80  flex flex-col items-end gap-8  sm:left-0 md:left-24 mmd:left-0 right-0 md:right-24   xl:right-64"

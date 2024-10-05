@@ -17,6 +17,7 @@ export default function Heading() {
   const [isFixed, setIsFixed] = useState(true);
   const [isRelative, setIsRelative] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     Aos.init({ duration: 1000, offset: 200 });
@@ -41,6 +42,7 @@ export default function Heading() {
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -49,29 +51,6 @@ export default function Heading() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Function to update the position of the second element
-    const updatePosition = () => {
-      if (firstElementRef.current) {
-        const firstElementBottom =
-          firstElementRef.current.offsetTop +
-          firstElementRef.current.offsetHeight;
-
-        // Set the top position of the second element
-        setSecondElementPosition(firstElementBottom + 20);
-      }
-    };
-
-    // Update position on mount and whenever the window is resized
-    updatePosition();
-    window.addEventListener("resize", updatePosition);
-
-    // Cleanup the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener("resize", updatePosition);
     };
   }, []);
 
@@ -117,14 +96,18 @@ export default function Heading() {
           <ScrollDown />
         </div>
       </div>
-      <div className="h-[1500px] pt-32   mx-auto w-full flex items-center justify-between  md:justify-around bg-[url('/public/bg.png')] bg-black">
+      <div className="h-[150vh] pt-32 bg-cover   mx-auto w-full flex items-center justify-between  md:justify-around bg-[url('/public/bg.png')] bg-black">
         <div
           data-aos="fade-right"
           data-aos-delay={300}
-          data-aos-offset={window.innerHeight / 1.2}
+          data-aos-offset={
+            windowHeight > 600
+              ? window.innerHeight / 1.5
+              : window.innerHeight / 0.9
+          }
           data-aos-duration="1000"
           data-aos-easing="ease-in-out"
-          className="flex relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80 sm:right-12 md:right-72 mmd:right-64  lg:right-4 llg:right-0  w-2/6 md:w-4/12 flex-col gap-16 justify-start"
+          className="flex relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80 sm:right-12 md:right-72 mmd:right-64  llg:right-46 lg:right-0  w-2/6 md:w-4/12 flex-col gap-16 justify-start"
         >
           <div className="relative  bottom-8 right-12 md:right-0 md:bottom-16 flex flex-col-reverse  md:flex-row gap-8 items-end">
             <div className="hidden md:block relative md:top-8">
@@ -132,7 +115,7 @@ export default function Heading() {
             </div>
             <img
               width={500}
-              className=" mt-4 md:mt-0 relative left-8 bottom-12 md:bottom-12 md:left-0  max-w-full h-auto"
+              className=" mt-4 md:mt-0 relative left-8 bottom-12 md:bottom-12 md:left-0 lg:left-auto lg:right-48 lg:bottom-24  max-w-full h-auto"
               src="/images/Card.svg"
               alt="card"
             />
@@ -157,41 +140,48 @@ export default function Heading() {
           </div>
           <div className="relative top-24 md:top-0 md:self-end md:left-24 lg:left-0">
             <img
-              className="min-w-full relative  top-16 sm:top-24 md:left-12  m:h-auto"
+              className="min-w-full relative  top-52 sm:top-24 md:left-12  m:h-auto"
               src="/images/new tickets card.svg"
               alt="ticket"
             />
           </div>
         </div>
         <div
-          ref={secondElementRef}
-          style={{
-            position: "absolute",
-            top: `${secondElementPosition * 0.9}px`,
-            padding: "40px",
-          }}
           data-aos="fade-up"
           data-aos-offset="350"
           data-aos-duration="800"
           data-aos-easing="ease-in-out"
           data-aos-once="false"
-          className=" w-2/6 md:w-2/12 left-[35%] md:left-[43%]  flex flex-col text-white text-center justify-center items-center "
+          className={` 
+    ${isFixed && !isRelative ? "fixed top-[90vh] hidden" : ""}
+    ${
+      !isFixed && isRelative
+        ? "relative -top-[18vh] md:-top-[25vh] 3xl:-top-[30vh]"
+        : ""
+    }
+    w-2/6 md:w-2/12  flex flex-col text-white text-center  justify-center items-center
+  `}
         >
-          <div className=" text-[56px] relative   text-center md:text-[70px] md:whitespace-nowrap pt-4 md:pt-16">
+          <div className="text-[56px] relative text-center md:text-[70px] md:whitespace-nowrap pt-4 md:pt-16">
             <p>Unlock Seamless</p>
             <p>Efficiency</p>
           </div>
-          <button className="bg-white text-cetner py-4 px-12 font-semibold mt-8 drop-shadow-lg rounded-full whitespace-nowrap text-black">
+          <button className="bg-white text-center py-4 px-12 font-semibold mt-8 drop-shadow-lg rounded-full whitespace-nowrap text-black">
             Join Waitlist
           </button>
         </div>
+
         <div
           data-aos="fade-left"
-          data-aos-delay={200}
-          data-aos-offset={window.innerHeight / 1.2}
-          data-aos-duration="500"
+          data-aos-delay={300}
+          data-aos-offset={
+            windowHeight > 600
+              ? window.innerHeight / 1.5
+              : window.innerHeight / 0.9
+          }
+          data-aos-duration="1000"
           data-aos-easing="ease-in-out"
-          className=" w-2/6 md:w-4/12 relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80  flex flex-col items-end gap-8  sm:left-0 md:left-24 mmd:left-0 llg:left-auto llg:right-12 xl:right-0 right-0 md:right-24    3xl:right-64"
+          className=" w-2/6 md:w-4/12 relative bottom-96 sm:bottom-72 mmd:bottom-96 xl:bottom-80  flex flex-col items-end gap-8  sm:left-0 md:left-24 mmd:left-36 llg:left-auto  xl:right-0 right-0 md:right-24 llg:right-0    "
         >
           <div className="hidden md:block md:self-center relative left-56  sm:bottom-24 md:bottom-0 md:left-0 ">
             <Todo task="Renew Car Insurance" />
@@ -211,7 +201,7 @@ export default function Heading() {
           </div>
 
           <img
-            className="md:self-center max-w-full relative left-8 sm:left-24 xl:left-0 md:right-24 top-64 sm:top-36"
+            className="md:self-center max-w-full relative left-8 sm:left-24 xl:left-0 md:right-24 top-96 sm:top-36"
             src="/images/Reservation.svg"
             alt="reservation"
           />

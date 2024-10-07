@@ -43,19 +43,35 @@ export default function WaitList() {
         <p className="text-[32px] md:text-[80px]">
           Join the Fluid AI Waitlist Today!
         </p>
-        <div className="flex flex-col pt-16 md:w-[459px] w-full">
-          <FloatingTextField
-            label="Name"
-            inputType="text"
-            className="border-b border-white/40 text-white-40 bg-transparent"
-            onChange={() => {}}
-          />
-          <FloatingTextField
-            label="Email"
-            inputType="email"
-            className="border-b border-white/40 text-white-40 bg-transparent"
-            onChange={() => {}}
-          />
+        <div className="flex flex-col pt-16 gap-4 md:w-[459px] w-full">
+          <div class="relative z-0">
+            <input
+              type="text"
+              id="floating_standard"
+              class="block py-2 px-0 w-full  text-white bg-transparent border-0 border-b-[1px] border-white/40 rounded-[4px] appearance-none  focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_standard"
+              class="absolute  text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-white  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+            >
+              Name
+            </label>
+          </div>
+          <div class="relative z-0">
+            <input
+              type="text"
+              id="floating_standard"
+              class="block py-2 px-0 w-full   text-white bg-transparent border-0 border-b-[1px] border-white/40 rounded-[4px] appearance-none focus:outline-none focus:ring-0 focus:border-gray-300 peer"
+              placeholder=" "
+            />
+            <label
+              for="floating_standard"
+              class="absolute  text-white  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-white  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+            >
+              Email
+            </label>
+          </div>
           <div className="relative inline-block">
             <div
               className="bg-transparent border-b rounded-[4px] border-white/40 md:w-[459px] py-2 cursor-pointer text-white flex items-center justify-between"

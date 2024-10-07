@@ -6,6 +6,20 @@ body {
   font-family: "Light";
 }
 
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
 
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
 
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+}
 
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+}

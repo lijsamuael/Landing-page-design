@@ -10,10 +10,9 @@ import Aos from "aos";
 import "aos/dist/aos.css"; // Ensure AOS CSS is imported
 
 export default function Heading() {
-  const firstElementRef = useRef(null);
-  const secondElementRef = useRef(null);
-  const [secondElementPosition, setSecondElementPosition] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isUserScrollDisabled, setIsUserScrollDisabled] = useState(false);
+
   const [isFixed, setIsFixed] = useState(true);
   const [isRelative, setIsRelative] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -29,15 +28,30 @@ export default function Heading() {
       const scrollPosition = window.scrollY;
       const height = window.innerHeight;
       const width = window.innerWidth;
-      console.log("height: ", height, "\nwidth: ", width);
       const viewportHeight = window.innerHeight / 4;
       const relativeHeight = (60 / 100) * window.innerHeight;
 
       setIsFixed(scrollPosition < viewportHeight);
-      setIsScrolled(scrollPosition > 50);
+      setIsScrolled(scrollPosition > 100);
       setIsRelative(scrollPosition >= viewportHeight);
-      console.log("is relative again", scrollPosition > relativeHeight);
-      console.log("is fixed ", scrollPosition < viewportHeight);
+
+      console.log("scroll postion", scrollPosition);
+      console.log("controll disabled", isUserScrollDisabled);
+
+      if (scrollPosition > 50) {
+        const scrollInterval = setInterval(() => {
+          window.scrollTo(0, 150);
+          if (window.scrollY >= 150) {
+            console.log("abebebebebe");
+            setIsUserScrollDisabled(true);
+          }
+        }, 10); // Adjust this interval to control scroll speed
+
+        // Stop scrolling after 2 seconds (2000ms)
+        setTimeout(() => {
+          clearInterval(scrollInterval);
+        }, 2000);
+      }
     };
 
     const handleResize = () => {
@@ -53,6 +67,22 @@ export default function Heading() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  // Automatically scroll to make the logo "relative"
+  const autoScrollToRelative = () => {
+    const scrollInterval = setInterval(() => {
+      window.scrollTo(0, 150);
+      if (window.scrollY >= 150) {
+        console.log("abebebebebe");
+        setIsUserScrollDisabled(true);
+      }
+    }, 10); // Adjust this interval to control scroll speed
+
+    // Stop scrolling after 2 seconds (2000ms)
+    setTimeout(() => {
+      clearInterval(scrollInterval);
+    }, 2000);
+  };
 
   const getLogoSize = () => {
     if (windowWidth < 738) {
@@ -72,11 +102,10 @@ export default function Heading() {
           <NavBar />
         </div>
         <div
-          ref={firstElementRef}
           className={`
-           ${isFixed && !isRelative ? "fixed" : "relative"} 
-           ${isRelative && !isFixed && "relative top-[40vh]"}
-           top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center `}
+      ${isFixed && !isRelative ? "fixed" : "relative"} 
+      ${isRelative && !isFixed && "relative top-[40vh]"}
+      top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center `}
         >
           <motion.img
             src="/public/logo.png"
@@ -102,7 +131,7 @@ export default function Heading() {
           data-aos-delay={300}
           data-aos-offset={
             windowHeight > 600
-              ? window.innerHeight / 1.5
+              ? window.innerHeight / 1.2
               : window.innerHeight / 0.9
           }
           data-aos-duration="1000"
@@ -176,7 +205,7 @@ export default function Heading() {
           data-aos-delay={300}
           data-aos-offset={
             windowHeight > 600
-              ? window.innerHeight / 1.5
+              ? window.innerHeight / 1.2
               : window.innerHeight / 0.9
           }
           data-aos-duration="1000"

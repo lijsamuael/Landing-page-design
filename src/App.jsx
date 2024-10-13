@@ -17,11 +17,10 @@ function App() {
     <div className="bg-black  overflow-x-hidden">
       <div className="max-w-[2000px] mx-auto">
         <Heading />
-        {/* <Ad /> */}
-        {/* <Slider /> */}
-        {/* <FQA />
+        <Ad />
+        <FQA />
         <WaitList />
-        <Footer /> */}
+        <Footer />
       </div>{" "}
     </div>
   );

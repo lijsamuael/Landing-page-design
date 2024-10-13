@@ -43,7 +43,17 @@ export default function Heading() {
       const newYPosition = scrollPos * 0.5; // Adjust this value for faster/slower movement
       setBgPositionY(newYPosition);
 
-      let viewportHeight = window.innerHeight / 10;
+      let viewportHeight
+      if(height < 1300){
+        viewportHeight = window.innerHeight / 10;
+      }else if(height < 1600) {
+        viewportHeight = window.innerHeight / 20;
+      }else if(height < 1750 ){
+        viewportHeight = window.innerHeight / 30
+      }else{(
+        viewportHeight = window.innerHeight / 50
+      )}
+      console.log("Width:", width, "\nHeight: ", height)
 
       setIsFixed(scrollPosition < viewportHeight);
       setIsScrolled(scrollPosition > 50);
